@@ -28,3 +28,22 @@ def decrypt(code):
                     break
     return ''.join(decrypted) #formats the string properly
 
+while True: #a while loop to create a menu-based user interface
+    print("1. Encrypt")
+    print("2. Decrypt")
+    print("3. Exit")
+    choice = input("Enter your choice (1, 2, or 3): ")
+
+    if choice == '1':
+        text = input("Enter the text to encrypt: ")
+        encrypted_text = encrypt(text)
+        print("Encrypted Morse code: ", encrypted_text)
+    elif choice == '2':
+        code = input("Enter the Morse code to decrypt (use '.' for dots and '-' for dashes): ")
+        decrypted_text = decrypt(code)
+        print("Decrypted text: ", decrypted_text)
+    elif choice == '3':
+        break
+    else:
+        print("Invalid choice. Please try again.\n")
+
