@@ -51,6 +51,23 @@ class MorseCodeTestCase(unittest.TestCase):
         expected_result = "HELLO WORLD"
         self.assertEqual(decrypt(code), expected_result)
 
+    def test_empty_string(self):
+        # Test encryption and decryption with an empty string
+        plaintext = ""
+        self.assertEqual(encrypt(plaintext), "")
+        self.assertEqual(decrypt(""), "")
+
+    def test_lowercase_text(self):
+        # Test encryption of lowercase text
+        plaintext = "hello"
+        expected_encrypted = ".... . .-.. .-.. ---"
+        self.assertEqual(encrypt(plaintext), expected_encrypted)
+        
+    def test_single_character_decryption(self):
+        # Test decryption of a single Morse code character
+        single_char_morse = ".-"
+        self.assertEqual(decrypt(single_char_morse), "A")
+
 
 
 unittest.main()
