@@ -16,3 +16,15 @@ def encrypt(text):
             encrypted.append(morse_code_dict[char]) 
     return ' '.join(encrypted) #joins the chars to the list with a space between them
 
+def decrypt(code):
+    decrypted = []
+    words = code.split(' ') #splits the code into words
+    for word in words:
+        chars = word.split()  
+        for char in chars: #goes through each char in the word
+            for letter, morse_code in morse_code_dict.items():
+                if morse_code == char: #checks if char is in the dictionary
+                    decrypted.append(letter)
+                    break
+    return ''.join(decrypted) #formats the string properly
+
